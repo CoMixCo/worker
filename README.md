@@ -1,5 +1,5 @@
 # worker
-···
+```
 package main
 
 import (
@@ -25,4 +25,4 @@ func main() {
 	wq.Stop()
 
 }
-···
+```
