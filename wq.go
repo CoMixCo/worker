@@ -16,7 +16,7 @@ func New() *WorkQueue {
 	}
 }
 
-func (wq *WorkQueue) Invoke(work func(), args ...any) {
+func (wq *WorkQueue) Invoke(work func()) {
 	wq.work <- work
 }
 
@@ -34,8 +34,8 @@ func (wq *WorkQueue) Start() {
 		for {
 			select {
 			case <-wq.quit:
-				wq.Working = false
 				fmt.Println("stoped!")
+				wq.Working = false
 				return
 			case f := <-wq.work:
 				f()
